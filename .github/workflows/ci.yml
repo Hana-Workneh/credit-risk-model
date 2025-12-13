@@ -1,7 +1,6 @@
-Set-Content -Encoding utf8 ".github\workflows\ci.yml" @'
-name: CI
+﻿name: CI
 
-"on":
+on:
   push:
     branches: [ main ]
   pull_request:
@@ -30,4 +29,3 @@ jobs:
 
       - name: Run unit tests (pytest)
         run: pytest -q
-'@
