@@ -3,13 +3,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Optional
 
-import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from src.target_engineering import build_customer_target
 
 
 REQUIRED_COLUMNS = [
@@ -172,8 +172,6 @@ def make_customer_feature_frame(raw_df: pd.DataFrame) -> pd.DataFrame:
     """Convenience helper: returns the engineered customer-level dataframe (before encoding)."""
     return CustomerFeatureAggregator().transform(raw_df)
 
-
-from src.target_engineering import build_customer_target
 
 def build_customer_training_table(raw_df: pd.DataFrame) -> pd.DataFrame:
     """
