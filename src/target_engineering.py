@@ -122,7 +122,7 @@ def assign_high_risk_label(
     # Higher total rank score => more "high-risk-like"
     ranks["risk_score"] = ranks["recency_rank"] + ranks["frequency_rank"] + ranks["monetary_rank"]
 
-    high_risk_cluster = int(ranks["risk_score"].idxmax())
+    high_risk_cluster = int(ranks["risk_score"].idxmin())
 
     rfm["is_high_risk"] = (rfm["cluster"] == high_risk_cluster).astype(int)
 
