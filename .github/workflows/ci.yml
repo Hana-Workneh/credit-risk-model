@@ -29,3 +29,13 @@ jobs:
 
       - name: Run unit tests (pytest)
         run: pytest -q
+      - name: Lint (flake8)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: flake8 src tests
+
+      - name: Run unit tests (pytest)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest -q
+
