@@ -1,5 +1,7 @@
 # data
 data/
+mlruns/
+mlflow.db
 
 # python
 __pycache__/
